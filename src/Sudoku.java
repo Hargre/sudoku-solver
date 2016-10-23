@@ -1,7 +1,8 @@
 
 public class Sudoku {
 	private int[][] grid;
-	private int row, col;
+	private int row;
+	private int col;
 	
 	public Sudoku(int[][] grid) {
 		setGrid(grid);
@@ -35,8 +36,16 @@ public class Sudoku {
 		}
 	}
 	
-	void findEmpty(int[][] grid) {
-		
+	void findEmpty() {
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				if (grid[i][j] == 0) {
+					this.row = i;
+					this.col = j;
+					return;
+				}
+			}
+		}
 	}
 	
 	boolean isValid(int i, int row, int col) {

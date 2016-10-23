@@ -4,13 +4,10 @@ public class Sudoku {
 	private int row;
 	private int col;
 	
-	
 	public Sudoku(int[][] grid) {
 		this.grid = grid;
 		this.row = 0;
 		this.col = 0;
-		
-		findSolution();
 	}
 	
 	boolean findSolution() {
@@ -50,9 +47,15 @@ public class Sudoku {
 	void printSolution() {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
+				if (j % 3 == 0) {
+					System.out.print("| ");
+				}
 				System.out.print(grid[i][j] + " ");
 			}
 			System.out.println();
+			if ((i + 1) % 3 == 0) {
+				System.out.println("-----------------------");
+			}
 		}
 	}
 	

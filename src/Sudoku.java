@@ -14,7 +14,7 @@ public class Sudoku {
 	}
 	
 	boolean findSolution() {
-		if (fullGrid(this.grid)) {
+		if (gridIsFull()) {
 			printSolution();
 			return true;
 		}
@@ -36,10 +36,10 @@ public class Sudoku {
 		return false;
 	}
 	
-	boolean fullGrid(int[][] grid) {
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid[i].length; j++) {
-				if (grid[i][j] == 0) {
+	boolean gridIsFull() {
+		for (int i = 0; i < this.grid.length; i++) {
+			for (int j = 0; j < this.grid[i].length; j++) {
+				if (this.grid[i][j] == 0) {
 					return false;
 				}
 			}

@@ -9,9 +9,30 @@ public class Sudoku {
 		this.grid = grid;
 		this.row = 0;
 		this.col = 0;
+		
+		findSolution();
 	}
 	
-	boolean findSolution(int[][] grid) {
+	boolean findSolution() {
+		if (fullGrid(this.grid)) {
+			printSolution();
+			return true;
+		}
+		
+		for (int i = 1; i <= 9; i++) {
+			findEmpty();
+			if (isValid(i, this.row, this.col)) {
+				int row = this.row;
+				int col = this.col;
+				
+				this.grid[row][col] = i;
+				if (findSolution()) {
+					return true;
+				}
+				
+				grid[row][col] = 0;
+			}
+		}
 		return false;
 	}
 	

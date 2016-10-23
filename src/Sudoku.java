@@ -5,7 +5,6 @@ public class Sudoku {
 	
 	public Sudoku(int[][] grid) {
 		setGrid(grid);
-		findSolution(this.grid);
 	}
 	
 	void setGrid(int[][] grid) {
@@ -17,7 +16,14 @@ public class Sudoku {
 	}
 	
 	boolean fullGrid(int[][] grid) {
-		return false;
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				if (grid[i][j] == 0) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	void printSolution() {

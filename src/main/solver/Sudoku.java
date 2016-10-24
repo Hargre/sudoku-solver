@@ -1,3 +1,4 @@
+package solver;
 
 public class Sudoku {
 	private int[][] grid;
@@ -10,7 +11,7 @@ public class Sudoku {
 		this.col = 0;
 	}
 	
-	boolean findSolution() {
+	public boolean findSolution() {
 		if (gridIsFull()) {
 			printSolution();
 			return true;
@@ -33,7 +34,7 @@ public class Sudoku {
 		return false;
 	}
 	
-	boolean gridIsFull() {
+	public boolean gridIsFull() {
 		for (int i = 0; i < this.grid.length; i++) {
 			for (int j = 0; j < this.grid[i].length; j++) {
 				if (this.grid[i][j] == 0) {
@@ -44,7 +45,7 @@ public class Sudoku {
 		return true;
 	}
 	
-	void printSolution() {
+	public void printSolution() {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
 				if (j % 3 == 0) {
@@ -59,7 +60,7 @@ public class Sudoku {
 		}
 	}
 	
-	void findEmpty() {
+	public void findEmpty() {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
 				if (grid[i][j] == 0) {
@@ -71,11 +72,11 @@ public class Sudoku {
 		}
 	}
 	
-	boolean isValid(int value, int row, int col) {
+	public boolean isValid(int value, int row, int col) {
 		return (isValidRow(value, row) && isValidCol(value, col) && isValidSquare(value, row, col));
 	}
 	
-	boolean isValidRow(int value, int row) {
+	public boolean isValidRow(int value, int row) {
 		for (int j = 0; j < grid[row].length; j++) {
 			if (grid[row][j] == value) {
 				return false;
@@ -84,7 +85,7 @@ public class Sudoku {
 		return true;
 	}
 	
-	boolean isValidCol(int value, int col) {
+	public boolean isValidCol(int value, int col) {
 		for (int i = 0; i < grid.length; i++) {
 			if (grid[i][col] == value) {
 				return false;
@@ -93,7 +94,7 @@ public class Sudoku {
 		return true;
 	}
 	
-	boolean isValidSquare(int value, int row, int col) {
+	public boolean isValidSquare(int value, int row, int col) {
 		int startRow = (row/3) * 3;
 		int startCol = (col/3) * 3;
 		int endRow = startRow + 3;

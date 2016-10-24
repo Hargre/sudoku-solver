@@ -1,6 +1,10 @@
+package solver;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import solver.Sudoku;
 
 public class SudokuTest {
 

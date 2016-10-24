@@ -10,8 +10,8 @@ public class SudokuTest {
 		int [][] gridNotFull = {{1,2,0},{1,2,3},{1,2,3}};
 		Sudoku testFull = new Sudoku(gridFull);
 		Sudoku testNotFull = new Sudoku(gridNotFull);
-		assertEquals(testFull.gridIsFull(), true);
-		assertEquals(testNotFull.gridIsFull(), false);
+		assertTrue(testFull.gridIsFull());
+		assertFalse(testNotFull.gridIsFull());
 	}
 	
 	@Test
@@ -25,16 +25,16 @@ public class SudokuTest {
 	public void testIsValidRow() {
 		int [][] testGrid = {{1,1,1},{2,2,2},{3,3,3}};
 		Sudoku testRow = new Sudoku(testGrid);
-		assertEquals(testRow.isValidRow(1, 0), false);
-		assertEquals(testRow.isValidRow(1, 1), true);
+		assertFalse(testRow.isValidRow(1, 0));
+		assertTrue(testRow.isValidRow(1, 1));
 	}
 	
 	@Test
 	public void testIsValidCol() {
 		int [][] testGrid = {{1,2,3},{1,2,3},{1,2,3}};
 		Sudoku testRow = new Sudoku(testGrid);
-		assertEquals(testRow.isValidCol(1, 0), false);
-		assertEquals(testRow.isValidCol(1, 1), true);
+		assertFalse(testRow.isValidCol(1, 0));
+		assertTrue(testRow.isValidCol(1, 1));
 	}
 	
 	@Test
@@ -52,8 +52,8 @@ public class SudokuTest {
 							 {7,7,7, 8,8,8, 9,9,9}};
 		
 		Sudoku testSquare = new Sudoku(testGrid);
-		assertEquals(testSquare.isValidSquare(1, 0, 0), false);
-		assertEquals(testSquare.isValidSquare(1, 3, 3), true);
+		assertFalse(testSquare.isValidSquare(1, 0, 0));
+		assertTrue(testSquare.isValidSquare(1, 3, 3));
 	}
 	
 	@Test
